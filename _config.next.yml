@@ -84,7 +84,7 @@ creative_commons:
 menu:
   '首页': / || fa fa-home
   #about: /about/ || fa fa-user
-  #tags: /tags/ || fa fa-tags
+  # '标签': /tags/ || fa fa-tags
   # categories: /categories/ || fa fa-th
   '时间线': /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
