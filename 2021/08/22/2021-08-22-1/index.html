@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="ericwxy">
+    
+    <title>
+        
+            互联网是如何工作的 |
+        
+        &lt;EricWXY/&gt;
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"ericwxy.github.io","root":"/","language":"zh-CN"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"<EricWXY/>","author":"ericwxy","avatar":"/images/avatar.png","favicon":"/images/logo.svg"},"menu":{"Archives":"/archives","About":"/about"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"facebook":null,"email":null}},"scroll":{"progress_bar":true,"percent":true,"hide_header":false},"home":{"category":false,"tag":false,"announcement":"欢迎来到我的 “部落格”。"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":true,"img_link":"/images/qr.jpg","text":"请作者喝杯咖啡吧~"}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":true,"use":"valine","valine":{"appid":"4Bf8KlFOqYt3arYL6vGxzb8g-gzGzoHsz","appkey":"FHQwBmfQpLmbIJcrxRJpYRX5","server_urls":null,"placeholder":"期待与你的交流"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.21"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"icp":{"enable":false,"record_code":null,"url":"https://beian.miit.gov.cn"},"site_deploy":{"enable":false,"provider":"github","url":null},"shields_style":{"enable":false,"custom":[{"link_url":null,"img_url":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","version":"4.0.7"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+            <a class="site-name border-box" href="/">
+               &lt;EricWXY/&gt;
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a class=""
+                           href="/"
+                        >首页</a>
+                    </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >归档</a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >关于</a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            <li class="drawer-menu-item flex-center">
+                <a class=""
+                   href="/"
+                >首页</a>
+            </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives"
+                    >归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about"
+                    >关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        互联网是如何工作的
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.png">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">ericwxy</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2021-08-22 19:57:13</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Wed Feb 28 2024 12:59:47 GMT+0800">2024-02-28 12:59:47</span>
+            </span>
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body">
+                    
+
+                    <p>Q: 从我们在浏览器地址栏输入网址按下回车，到我们看到内容中间发生了什么？</p>
+<p>这个问题可以说是一个 web 开发者在面试中除了具体的技术问题之外被问得最频繁的综合类问题之一了吧。这个问题可以从不同的角度以及深度来回答，很能体现出一个工程师对于原理的理解程度。</p>
+<p>接下来我会用若干篇，来盘一盘这个问题。今天我先从网络这个层面切入。</p>
+<h1 id="你是如何访问到-bilibili-com-的站点数据的"><a href="#你是如何访问到-bilibili-com-的站点数据的" class="headerlink" title="你是如何访问到 bilibili.com 的站点数据的"></a>你是如何访问到 bilibili.com 的站点数据的</h1><p>当你的电脑连入互联网之后，你的电脑将会获得一个编号地址这个地址我们称之为 Internet Protocol address (IP地址),当然你要访问的目标网站也需要接入互联网，它也将分配一个IP 地址。我们常说的访问某网站，其实就是在访问这个网站的服务器。<br>我们假设你的电脑需要访问 bilibili 服务器中的 index.html 来获取 b 站的首页,此时我们称你的电脑为客户端，bilibili 的服务器为服务端。这就是我们常说的 客户端服务端模型,如果我们是通过一个客户端程序去请求 b 站的数据,这就是所谓的 C/S 架构，如果我们是在浏览器中访问测试所谓的 B/S 架构。<br>客户端在需要时可通过互联网与服务端进行通信，拿访问 b 站的首页这个例子来说，你的电脑发送消息给 bilibili 服务器”我想要获取 index.html 的内容,请把它传给我”,这条消息会被转化成电子信号通过电缆发送给 bilibili 服务器,在服务端再将电子信号转换成计算机可以识别的文本数据。</p>
+<h2 id="那么这一切是如何实现的呢？-TCP-IP-协议族"><a href="#那么这一切是如何实现的呢？-TCP-IP-协议族" class="headerlink" title="那么这一切是如何实现的呢？(TCP/IP 协议族)"></a>那么这一切是如何实现的呢？(TCP/IP 协议族)</h2><ul>
+<li>首先我们需要明确什么是协议。</li>
+</ul>
+<blockquote>
+<p>协议是一种规则，用于指定计算机应如何通过网络来相互通信</p>
+</blockquote>
+<ul>
+<li>TCP/IP</li>
+</ul>
+<p>TCP/IP 协议共分成4层：应用层、TCP 传输控制层、IP 网络层、链路层。很多复杂的系统都是采用这种分层结构，每一层都是相互独立相互调用，通过分层来区分明确每一层的工作职责同过定义好的接口来相互调用协同工作，每一层都可以使用下面各层的功能而不去关心各层是如何实现的。</p>
+<p>应用层：提供特定于应用程序的协议, 如前端后端工程师每天都会接触的负责 浏览器和网络服务器相互通信的 HTTP 协议，负责文件传输的 FTP 协议,负责电子邮件客户端检索邮件的 IMAP 协议。<br>传输控制层： 发送数据包到计算机上使用特定端口号的应用程序<br>网络层： 使用 IP 地址将数据包发送到特定的计算机<br>链路层： 将二进制数据包于网络信号之间相互转换</p>
+<p>在上面的 访问 b 站的例子中，我们使用 应用层的 http 协议请求获取 b 站首页的 html 文本，请求消息在发送之前会被分解为许多片段我们称之为”数据包”。<br>数据包首先通过应用层进入TCP（传输控制层） 层,进入 TCP 后每个数据包都会被分配端口号(其中包括 源端口/目标端口),端口号用于确定目标计算机的哪一个程序要接受并使用该数据包。<br>TCP 是一种面向连接的可靠字节流服务协议。这里我们需要重点注意 “面向连接”和”可靠” 这两个词<br>TCP 必须先经过三次握手建立连接后才能交换数据每个收到的数据包都会向发送方发送ack确认，以保证发送成功。<br>接下来”数据包”会从 TCP 层中进入 IP 层,进入IP 层后，每个数据包将会被赋予源和目标计算机的 IP 地址。</p>
+<blockquote>
+<p>IP 是不可靠的无连接协议，它并不关系数据包是否到达目的地，也不关心连接和端口号它的工作是发送数据包并将其路由到目标计算机，其中每个数据包都相互独立的不互相依赖的，所以有可能乱序到达目标地址或在传输途中丢失。保证数据包到达和传输顺序正确的工作都交给了 TCP 层，这也就体现出了分层的作用。</p>
+</blockquote>
+<blockquote>
+<p>当数据包过大时，在 IP 层会进行分包。由于每个数据包在物理链路层走的物理链路不一样，传输速度也不一样导致数据包没有按照顺序到达目的地。但 TCP 会根据数据包上携带的序列号来进行排序重组。并且发送方在特定时间内没有接收到对方的ack确认时则发送方会重新传送该数据包。</p>
+</blockquote>
+<blockquote>
+<p>这里需要注意的是 IP 不等同于 IP 地址，IP 是传输协议而 IP 地址是一串数字。IP 地址目前分为 ipv4(Internet Protocal Version 4) 和 ipv6 (Internet Protocal Version 6)两种标准。</p>
+</blockquote>
+<p>ipv4 采用 32 位地址（4字节）因此最多又2的32次方种可能性（约40亿个地址），其中一些地址是为特殊用途保留的，如专用网络约1800万个地址，和多播地址约2.7亿个地址。随着互联网爆炸式的发转，地址不断被分配,ipv4 地址枯竭的问题也随之产生。<br>于时就有了 ipv6 ,ipv6 采用128位的地址，因此新增的地址空间支持2的128次方约3.4乘以10的38次方个地址，以地球人口 70 亿计算每个人平均可分的约 4.86 乘以 10 的28次方个 ipv6 地址。</p>
+<p>有了 ip 地址和端口号后，链路层将数据包的文本信息转译成电子信号通过电缆传输。在电缆的另一端的路由器，检查每一个数据包中的目标地址并确定将其发送到何处。<br>最终数据包到达服务器后，数据包从TCP/IP 协议族的最底层开始向上一层一层逆向处理。当数据包向上通过协议族时客户端添加的所有路由数据如 ip 地址和端口号都将从数据包中剥离出来,当数据包到达顶部的引用层时，数据包已经重新恢复成最初的形式。通过端口号可以将数据包传输给当前服务器对应端口上的应用程序，应用程序根据当前的数据包做出反应。如我们当前想要获取 b 站首页的 index.html ，b 站的服务器会将响应路径下的 index.html 文件通过刚才的方式返回给你的电脑也就是客户端，这样一来你就看到了b 站首页的内容了。</p>
+<h1 id="互联网是怎么构成的"><a href="#互联网是怎么构成的" class="headerlink" title="互联网是怎么构成的"></a>互联网是怎么构成的</h1><p>通过上面的描述我们了解到了客户端与服务器之间的一次数据交互是如何进行的，现在我们来看一个更加宏观的问题：你的电脑和 b 站之间的互联网是怎么构成的？</p>
+<p>你的电脑通过 “调制解调器（modem）”也就是我们所说的猫接入,猫将计算机的数字信号翻译成可沿着电话线或光纤传输的模拟信号后在公共电话网络进行传输，公共电话网络通过连接 Internet Service Provider(ISP) 互联网服务提供商接入互联网。我们生活中常见的移动 联动 电信 都是ISP。数据包经过电话网络和ISP后,将路由到 ISP 的主干网络。数据包通常会经过多个主干网直到找到目的地。互联网主干网由许多相互连接的大小网络组成，这些大型网络被称为网络服务提供商(Network Service Provider)，简称NSP。NSP 是为 ISP 提供网络主干服务的公司，ISP 可以从 NSP 那里批量购入带宽。NSP 网络通过网络访问点 NAP 相连，每个 NSP 都必须连接到至少三个 NAP 。这就是一个简化后的互联网模型，互联网的实际组成更为复杂。<br>既然互联网组成如此复杂，互联网是如何帮助数据包找到一个正确的路线把数据送到的呢？<br>在互联网中有一种特殊的计算机-路由器，路由器上有路由表记录了其自网络的所有 ip 地址然而它并不知道上一层包含的 ip 地址。当数据包到达路由器，路由器就会先检查路由表上是否有目标的 ip 地址，如找不到则会将数据转发到上一层。如此一层一层便会找到我们的目标地址了。</p>
+<h1 id="我们不需要记住网站的-ip-地址"><a href="#我们不需要记住网站的-ip-地址" class="headerlink" title="我们不需要记住网站的 ip 地址"></a>我们不需要记住网站的 ip 地址</h1><p>我们已经知道了如何通过 ip 地址向我们的目标发送 http 请求来做数据交互了。那么新的问题出现了,我们真的需要记住每个网站的 ip 地址吗？答案是否定的，因为互联网中存在这（Domain Names Service)DNS,DNS 是一种分布式数据库记录了域名和 ip 地址的对应关系。当我们在浏览器地址栏中输入网址（也就是域名）时,我们的浏览器首先连接DNS 服务器获取到该域名对应的 ip 地址后浏览器再连接访问该 ip 地址对应的服务器获取所需的数据。<br>有了 DNS 服务器的 ip 地址变化了只需要重新绑定就可以了,这样就不需要用户去记住新的 ip 地址了。<br>上面说到了 DNS 是分布式的 它存在一个根服务,当我们的浏览器将域名发送给 DNS 时首先发送给离我们最近的 DNS 服务器，然后离我们最近的这个 DNS 会去连接 根服务，根服务会根据我们域名的分级（域名中的点）依次“询问” 对应的 DNS 查找 ip 地址，找到之后再原路返给我们的浏览器。这就是 DNS 的一个大概的工作过程。</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>现在我们已经了解了当我们在浏览器输入 bilibili.com 按下回车后，互联网层面发生了什么。当我们收到数据后浏览器是如何将数据呈现给我们的呢？ 这又涉及到了浏览器的工作原理，以后有机会再聊。</p>
+
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    <div class="reward-author-container border-box flex-center">
+    <div class="reward-btn keep-button border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="请作者喝杯咖啡吧~"
+            data-tooltip-img-url="/images/qr.jpg"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -8px;"
+    >
+        <i class="fa-solid fa-hand-holding-heart"></i>
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2021/09/15/2021-09-15-1/"
+                                   title="2021/09/15 开发问题解决记录"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">2021/09/15 开发问题解决记录</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2021/08/16/2021-08-16-1/"
+                                   title="husky + lint-staged 优雅的 git 提交规范校验"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">husky + lint-staged 优雅的 git 提交规范校验</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">评论插件加载失败</span>
+    <button class="reload keep-button">点击重新加载</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">正在加载评论插件</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="valine-container">
+        <div id="vcomments"></div>
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script 
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initValine = () => {
+            const config = {
+              el: '#vcomments',
+              appId: '4Bf8KlFOqYt3arYL6vGxzb8g-gzGzoHsz',
+              appKey: 'FHQwBmfQpLmbIJcrxRJpYRX5',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '期待与你的交流',
+              lang: 'zh-CN'.toLowerCase()
+            }
+
+            if ('') {
+              config.serverURLs = ''
+            }
+
+            if (window?.Valine) {
+              new Valine(config)
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initValine()
+              }, 1000)
+            }
+          }
+
+          if ('false' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initValine()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initValine)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">ericwxy</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+<!-- common -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/libs/anime.min.js"></script>
+
+<!-- local-search -->
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/lazyload.min.js"></script>
+
+
+<div class="">
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.0.7/js/post/share.min.js"></script>
+        
+    
+
+    <!-- category-page -->
+    
+
+    <!-- links-page -->
+    
+
+    <!-- photos-page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
