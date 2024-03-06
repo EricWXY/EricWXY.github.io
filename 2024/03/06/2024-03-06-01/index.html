@@ -9,7 +9,7 @@
     
     <title>
         
-            husky + lint-staged 优雅的 git 提交规范校验 |
+            多包管理方案：pnpm + changesets 的实践指南 |
         
         &lt;EricWXY/&gt;
     </title>
@@ -141,7 +141,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        husky + lint-staged 优雅的 git 提交规范校验
+                        多包管理方案：pnpm + changesets 的实践指南
                     </div>
                 
 
@@ -167,17 +167,33 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2021-08-16 09:56:24</span>
+                <span class="datetime">2024-03-06 14:46:59</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed Feb 28 2024 12:59:47 GMT+0800">2024-02-28 12:59:47</span>
+                <span class="datetime" data-updated="Wed Mar 06 2024 14:48:49 GMT+0800">2024-03-06 14:48:49</span>
             </span>
         
 
         
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/monorepo/">monorepo</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/pnpm/">pnpm</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/changesets/">changesets</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
@@ -197,31 +213,35 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <p>最近对在做的一些 uni-app 项目做了一些代码规范和提交规范的校验改造，感觉效果还不错。<br>这样一来，项目里合作的过程就会规范很多，git commit 可以规范，也可以在 git 提交前之前<br>校验代码规范。很简单的步骤就可以规范团队的代码个 git commit 真的很香。下面我就来记录一下配置改造的过程，为日后的环境搭建做一个参考。</p>
-<h1 id="搞清“是什么”"><a href="#搞清“是什么”" class="headerlink" title="搞清“是什么”"></a>搞清“是什么”</h1><ul>
-<li><p><code>husky</code>,在做前端工程化时 husky 可以说是一个必不可少的工具。husky 可以让我们向项目中方便添加 git hooks。</p>
-</li>
-<li><p><code>lint-staged</code>,在代码提交之前，进行代码规则检查能够确保进入 git 库的代码都是符合代码规则的。但是整个项目上运行 lint 速度会很慢，lint-staged 能够让 lint 只检测暂存区的文件，所以速度很快。</p>
-</li>
-</ul>
-<h1 id="Step-one-安装依赖"><a href="#Step-one-安装依赖" class="headerlink" title="Step_one 安装依赖"></a>Step_one 安装依赖</h1><blockquote>
-<p>需要注意的是 husky 自 6.0 版本之后有一些 ‘breaking update’，使用逻辑和之前完全不一样，所以我选择了较为老的版本。</p>
-</blockquote>
-<ul>
-<li><a class="link"   href="mailto:&#x68;&#x75;&#x73;&#x6b;&#121;&#64;&#52;&#46;&#51;&#x2e;&#x30;" >&#x68;&#x75;&#x73;&#x6b;&#121;&#64;&#52;&#46;&#51;&#x2e;&#x30;<i class="fas fa-external-link-alt"></i></a></li>
-<li>lint-staged</li>
-<li>@commitlint/cli</li>
-<li>@commitlint/config-conventional</li>
-</ul>
-<blockquote>
-<p>记得加上<code>--save-dev</code> 参数呦.</p>
-</blockquote>
-<h1 id="Step-two-配置-package-json"><a href="#Step-two-配置-package-json" class="headerlink" title="Step_two 配置 package.json"></a>Step_two 配置 package.json</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	...</span><br><span class="line">   <span class="attr">&quot;husky&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;hooks&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;pre-commit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lint-staged&quot;</span><span class="punctuation">,</span> <span class="comment">// 提交之前执行 ‘lint-staged’</span></span><br><span class="line">      <span class="attr">&quot;commit-msg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;commitlint -e $HUSKY_GIT_PARAMS&quot;</span> <span class="comment">// git commit 规范校验</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lint-staged&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;./src/**/*.&#123;js,vue&#125;&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;prettier --write&quot;</span><span class="punctuation">,</span> <span class="comment">// prettier 格式化代码</span></span><br><span class="line">      <span class="string">&quot;eslint -c eslint.config.js&quot;</span> <span class="comment">// eslint 校验</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	...</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>前提是你得先配置好 eslint + prettier 可参考我上一篇 blog</p>
-</blockquote>
-<p>并且在根目录创建 <code>commitlint.config.js</code> ，键入<code>module.exports = &#123; extends: [&#39;@commitlint/config-conventional&#39;] &#125;;</code></p>
-<h1 id="打完收工"><a href="#打完收工" class="headerlink" title="打完收工"></a>打完收工</h1><p>经过以上两步的折腾，你的项目已经具备了 校验 git commit 以及 提交前的代码 lint 能力了.是不是很神奇，好好享受工程化带来的乐趣把。</p>
+                    <h1 id="多包管理方案：pnpm-changesets-的实践指南"><a href="#多包管理方案：pnpm-changesets-的实践指南" class="headerlink" title="多包管理方案：pnpm + changesets 的实践指南"></a>多包管理方案：pnpm + changesets 的实践指南</h1><p>在现代软件开发中，多包管理（monorepo）已经成为一种流行的项目组织方式。它允许我们在同一个仓库中管理多个包，这有助于代码共享、统一工作流和简化依赖管理。本文将介绍如何使用 <code>pnpm</code> 和 <code>changesets</code> 这两个工具来高效地管理你的多包项目。</p>
+<h2 id="为什么选择-pnpm-changesets？"><a href="#为什么选择-pnpm-changesets？" class="headerlink" title="为什么选择 pnpm + changesets？"></a>为什么选择 pnpm + changesets？</h2><p><code>pnpm</code> 是一个高效的包管理器，它通过硬链接和符号链接来共享依赖，从而减少了重复依赖的安装。<code>changesets</code> 则专注于版本管理和发布流程，它通过自动化 CHANGELOG 的生成和版本号的更新，简化了发布过程。</p>
+<h2 id="初始化你的-monorepo"><a href="#初始化你的-monorepo" class="headerlink" title="初始化你的 monorepo"></a>初始化你的 monorepo</h2><p>首先，你需要一个 monorepo。如果你还没有，可以创建一个新的 Git 仓库，并初始化 <code>package.json</code>。</p>
+<h3 id="安装-pnpm"><a href="#安装-pnpm" class="headerlink" title="安装 pnpm"></a>安装 pnpm</h3><p>在项目根目录下，运行以下命令来全局安装 <code>pnpm</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pnpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-pnpm-workspaces"><a href="#配置-pnpm-workspaces" class="headerlink" title="配置 pnpm-workspaces"></a>配置 pnpm-workspaces</h3><p>在项目根目录下创建一个 <code>pnpm-workspaces.yaml</code> 文件，并列出你的所有包：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pnpm-workspaces.yaml</span></span><br><span class="line"><span class="attr">packages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#x27;packages/*&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>使用 <code>pnpm</code> 安装所有包的依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-changesets-管理版本"><a href="#使用-changesets-管理版本" class="headerlink" title="使用 changesets 管理版本"></a>使用 changesets 管理版本</h2><h3 id="初始化-changesets"><a href="#初始化-changesets" class="headerlink" title="初始化 changesets"></a>初始化 changesets</h3><p>在项目根目录下运行以下命令来初始化 changesets：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx changeset init</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-changeset"><a href="#添加-changeset" class="headerlink" title="添加 changeset"></a>添加 changeset</h3><p>当你对包进行更改时，添加一个新的 changeset：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx changeset add</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新版本和生成-CHANGELOG"><a href="#更新版本和生成-CHANGELOG" class="headerlink" title="更新版本和生成 CHANGELOG"></a>更新版本和生成 CHANGELOG</h3><p>准备发布新版本时，运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx changeset version</span><br></pre></td></tr></table></figure>
+
+<h3 id="发布包"><a href="#发布包" class="headerlink" title="发布包"></a>发布包</h3><p>使用以下命令发布更新后的包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx changeset publish</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p><code>pnpm</code> 提供了执行命令的功能，你可以指定特定的包或者所有包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm <span class="built_in">exec</span> -r pnpm run build</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置自动化"><a href="#配置自动化" class="headerlink" title="配置自动化"></a>配置自动化</h2><p>将 <code>changeset</code> 集成到你的 CI/CD 流程中，以便在每次提交到主分支时自动执行版本更新和发布。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><code>pnpm</code> 和 <code>changesets</code> 的组合为多包管理提供了一个强大且高效的解决方案。通过自动化依赖安装、版本管理和发布流程，这些工具帮助开发者节省时间，专注于代码的编写和功能的实现。如果你正在寻找一个可靠的多包管理方案，那么 <code>pnpm</code> 加 <code>changesets</code> 值得一试。</p>
 
                 </div>
 
@@ -229,6 +249,22 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/monorepo/">monorepo</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/pnpm/">pnpm</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/changesets/">changesets</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -276,31 +312,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2021/08/22/2021-08-22-1/"
-                                   title="互联网是如何工作的"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">互联网是如何工作的</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2021/08/08/2021-08-08-1/"
-                                   title="Rollup + eslint + prettier 搭建类库开发环境"
+                                   href="/2024/03/04/2024-03-04-1/"
+                                   title="个人向 AI 工具总结（2024-03-04）"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Rollup + eslint + prettier 搭建类库开发环境</span>
+                                        <span class="post-nav-title-item text-ellipsis">个人向 AI 工具总结（2024-03-04）</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
