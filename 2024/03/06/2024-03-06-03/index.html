@@ -9,7 +9,7 @@
     
     <title>
         
-            husky + lint-staged 优雅的 git 提交规范校验 |
+            互联网是如何工作的(续) |
         
         &lt;EricWXY/&gt;
     </title>
@@ -141,7 +141,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        husky + lint-staged 优雅的 git 提交规范校验
+                        互联网是如何工作的(续)
                     </div>
                 
 
@@ -167,17 +167,45 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2021-08-16 09:56:24</span>
+                <span class="datetime">2024-03-06 15:26:00</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Wed Feb 28 2024 12:59:47 GMT+0800">2024-02-28 12:59:47</span>
+                <span class="datetime" data-updated="Wed Mar 06 2024 15:30:56 GMT+0800">2024-03-06 15:30:56</span>
             </span>
         
 
         
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">工作原理</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Web%E6%8A%80%E6%9C%AF/">Web技术</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/DNS/">DNS</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/HTTP/">HTTP</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AE%89%E5%85%A8%E6%80%A7/">安全性</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
@@ -197,31 +225,21 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <p>最近对在做的一些 uni-app 项目做了一些代码规范和提交规范的校验改造，感觉效果还不错。<br>这样一来，项目里合作的过程就会规范很多，git commit 可以规范，也可以在 git 提交前之前<br>校验代码规范。很简单的步骤就可以规范团队的代码个 git commit 真的很香。下面我就来记录一下配置改造的过程，为日后的环境搭建做一个参考。</p>
-<h1 id="搞清“是什么”"><a href="#搞清“是什么”" class="headerlink" title="搞清“是什么”"></a>搞清“是什么”</h1><ul>
-<li><p><code>husky</code>,在做前端工程化时 husky 可以说是一个必不可少的工具。husky 可以让我们向项目中方便添加 git hooks。</p>
-</li>
-<li><p><code>lint-staged</code>,在代码提交之前，进行代码规则检查能够确保进入 git 库的代码都是符合代码规则的。但是整个项目上运行 lint 速度会很慢，lint-staged 能够让 lint 只检测暂存区的文件，所以速度很快。</p>
-</li>
-</ul>
-<h1 id="Step-one-安装依赖"><a href="#Step-one-安装依赖" class="headerlink" title="Step_one 安装依赖"></a>Step_one 安装依赖</h1><blockquote>
-<p>需要注意的是 husky 自 6.0 版本之后有一些 ‘breaking update’，使用逻辑和之前完全不一样，所以我选择了较为老的版本。</p>
-</blockquote>
-<ul>
-<li><a class="link"   href="mailto:&#x68;&#117;&#x73;&#x6b;&#x79;&#x40;&#x34;&#46;&#51;&#46;&#48;" >&#x68;&#117;&#x73;&#x6b;&#x79;&#x40;&#x34;&#46;&#51;&#46;&#48;<i class="fas fa-external-link-alt"></i></a></li>
-<li>lint-staged</li>
-<li>@commitlint/cli</li>
-<li>@commitlint/config-conventional</li>
-</ul>
-<blockquote>
-<p>记得加上<code>--save-dev</code> 参数呦.</p>
-</blockquote>
-<h1 id="Step-two-配置-package-json"><a href="#Step-two-配置-package-json" class="headerlink" title="Step_two 配置 package.json"></a>Step_two 配置 package.json</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	...</span><br><span class="line">   <span class="attr">&quot;husky&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;hooks&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;pre-commit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lint-staged&quot;</span><span class="punctuation">,</span> <span class="comment">// 提交之前执行 ‘lint-staged’</span></span><br><span class="line">      <span class="attr">&quot;commit-msg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;commitlint -e $HUSKY_GIT_PARAMS&quot;</span> <span class="comment">// git commit 规范校验</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lint-staged&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;./src/**/*.&#123;js,vue&#125;&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;prettier --write&quot;</span><span class="punctuation">,</span> <span class="comment">// prettier 格式化代码</span></span><br><span class="line">      <span class="string">&quot;eslint -c eslint.config.js&quot;</span> <span class="comment">// eslint 校验</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	...</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>前提是你得先配置好 eslint + prettier 可参考我上一篇 blog</p>
-</blockquote>
-<p>并且在根目录创建 <code>commitlint.config.js</code> ，键入<code>module.exports = &#123; extends: [&#39;@commitlint/config-conventional&#39;] &#125;;</code></p>
-<h1 id="打完收工"><a href="#打完收工" class="headerlink" title="打完收工"></a>打完收工</h1><p>经过以上两步的折腾，你的项目已经具备了 校验 git commit 以及 提交前的代码 lint 能力了.是不是很神奇，好好享受工程化带来的乐趣把。</p>
+                    <h1 id="互联网是如何工作的-续"><a href="#互联网是如何工作的-续" class="headerlink" title="互联网是如何工作的(续)"></a>互联网是如何工作的(续)</h1><p>在之前文章《<a href="https://ericwxy.github.io/2021/08/22/2021-08-22-1/#/">互联网是如何工作的</a>》中，我们探讨了互联网的工作原理，从你在浏览器地址栏输入网址按下回车，到我们看到内容的整个过程。这个过程涉及到了IP地址、TCP/IP协议族、DNS解析等多个关键环节。现在，让我们深入了解浏览器是如何在这个过程中发挥作用的。（之前挖的坑…）</p>
+<h2 id="浏览器的内部机制"><a href="#浏览器的内部机制" class="headerlink" title="浏览器的内部机制"></a>浏览器的内部机制</h2><p>浏览器作为用户与互联网交互的窗口，其内部机制同样复杂。以下是浏览器工作流程的详细解析：</p>
+<h3 id="1-解析网址"><a href="#1-解析网址" class="headerlink" title="1. 解析网址"></a>1. 解析网址</h3><p>当你在地址栏输入一个网址时，浏览器首先会解析这个URL，识别出协议、服务器地址、路径和查询参数等信息。</p>
+<h3 id="2-DNS查询"><a href="#2-DNS查询" class="headerlink" title="2. DNS查询"></a>2. DNS查询</h3><p>浏览器会检查本地缓存，如果没有找到对应的IP地址，它会向DNS服务器发起查询请求，将域名解析为IP地址。</p>
+<h3 id="3-建立连接"><a href="#3-建立连接" class="headerlink" title="3. 建立连接"></a>3. 建立连接</h3><p>获取到服务器的IP地址后，浏览器会尝试与服务器建立连接。如果是HTTPS连接，还会进行SSL/TLS握手以确保通信安全。</p>
+<h3 id="4-发送请求"><a href="#4-发送请求" class="headerlink" title="4. 发送请求"></a>4. 发送请求</h3><p>浏览器构建HTTP请求，包括请求方法、资源路径和请求头，然后将请求发送到服务器。</p>
+<h3 id="5-接收响应"><a href="#5-接收响应" class="headerlink" title="5. 接收响应"></a>5. 接收响应</h3><p>服务器处理请求后返回HTTP响应，浏览器根据响应的状态码、响应头和响应体进行处理。</p>
+<h3 id="6-渲染页面"><a href="#6-渲染页面" class="headerlink" title="6. 渲染页面"></a>6. 渲染页面</h3><p>浏览器解析HTML文档，构建DOM，解析CSS并应用样式，执行JavaScript代码，最终将内容绘制到屏幕上。</p>
+<h3 id="7-交互与反馈"><a href="#7-交互与反馈" class="headerlink" title="7. 交互与反馈"></a>7. 交互与反馈</h3><p>用户与网页的交互，如点击链接、提交表单等，会导致浏览器发送新的请求或执行客户端JavaScript代码。</p>
+<h3 id="8-缓存与性能优化"><a href="#8-缓存与性能优化" class="headerlink" title="8. 缓存与性能优化"></a>8. 缓存与性能优化</h3><p>浏览器对资源进行缓存，根据HTTP响应头的缓存策略决定缓存内容和时间，以提高后续访问的效率。</p>
+<h3 id="9-安全性与隐私"><a href="#9-安全性与隐私" class="headerlink" title="9. 安全性与隐私"></a>9. 安全性与隐私</h3><p>浏览器实施同源策略，防止不同来源的脚本相互干扰，并提供隐私保护功能，如隐私模式浏览。</p>
+<h2 id="浏览器的现代挑战"><a href="#浏览器的现代挑战" class="headerlink" title="浏览器的现代挑战"></a>浏览器的现代挑战</h2><p>随着Web技术的发展，浏览器面临着新的挑战，如处理更复杂的JavaScript框架、支持新的Web标准、提高跨平台兼容性等。同时，用户对浏览器的性能、安全性和隐私保护的要求也越来越高。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>浏览器不仅仅是一个简单的网页查看器，它是现代互联网生态系统中的核心组件。了解浏览器的工作原理，可以帮助我们更好地理解Web技术，以及如何构建更高效、更安全的网络应用。</p>
+<hr>
+<p>本文是对《互联网是如何工作的》的续篇，旨在深入探讨浏览器的工作原理。希望这篇文章能够帮助你更好地理解你每天使用的这个强大工具。</p>
 
                 </div>
 
@@ -229,6 +247,38 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">工作原理</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Web%E6%8A%80%E6%9C%AF/">Web技术</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/DNS/">DNS</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/HTTP/">HTTP</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%AE%89%E5%85%A8%E6%80%A7/">安全性</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -276,31 +326,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2021/08/22/2021-08-22-1/"
-                                   title="互联网是如何工作的"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">互联网是如何工作的</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2021/08/08/2021-08-08-1/"
-                                   title="Rollup + eslint + prettier 搭建类库开发环境"
+                                   href="/2024/03/06/2024-03-06-02/"
+                                   title="GitHub Actions 快速入门与进阶技巧"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Rollup + eslint + prettier 搭建类库开发环境</span>
+                                        <span class="post-nav-title-item text-ellipsis">GitHub Actions 快速入门与进阶技巧</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
