@@ -9,7 +9,7 @@
     
     <title>
         
-            构建高效的软件开发工作流：Monorepo、DevOps、TDD、AIGC的指北 |
+            从零手搓一个 Element Plus |
         
         &lt;EricWXY/&gt;
     </title>
@@ -141,7 +141,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        构建高效的软件开发工作流：Monorepo、DevOps、TDD、AIGC的指北
+                        从零手搓一个 Element Plus
                     </div>
                 
 
@@ -167,12 +167,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-03-07 12:34:16</span>
+                <span class="datetime">2024-04-17 16:18:02</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Thu Mar 07 2024 13:00:18 GMT+0800">2024-03-07 13:00:18</span>
+                <span class="datetime" data-updated="Wed Apr 17 2024 16:58:23 GMT+0800">2024-04-17 16:58:23</span>
             </span>
         
 
@@ -183,16 +183,16 @@
                 <i class="icon fas fa-tags"></i>&nbsp;
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/monorepo/">monorepo</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/vue3/">vue3</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/DevOps/">DevOps</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/typescript/">typescript</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/TDD/">TDD</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/">组件库</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AIGC/">AIGC</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/element-plus/">element-plus</a></li>
                         
                     
                 </ul>
@@ -216,57 +216,37 @@
                 <div class="post-content keep-markdown-body">
                     
 
-                    <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在快节奏的软件开发领域，效率和质量是成功的关键。本文将探讨如何通过结合Monorepo、DevOps、TDD（测试驱动开发）和AIGC（人工智能生成内容）来构建一个高效的工作流。我们将详细介绍每个概念，并提供具体的操作步骤，帮助您在实际项目中应用这些方法。</p>
-<h2 id="项目规划与设计"><a href="#项目规划与设计" class="headerlink" title="项目规划与设计"></a>项目规划与设计</h2><h3 id="使用Obsidian进行项目规划"><a href="#使用Obsidian进行项目规划" class="headerlink" title="使用Obsidian进行项目规划"></a>使用Obsidian进行项目规划</h3><p>Obsidian是一个强大的知识管理工具，它可以帮助您组织项目文档、规划和设计。结合ChatGPT，您可以快速生成项目规划和模块设计草案。</p>
-<p><strong>操作步骤：</strong></p>
-<ol>
-<li><p><strong>创建项目库：</strong></p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obsidian new-project my_project</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>使用ChatGPT生成项目规划：</strong></p>
-<p> chatgpt generate “project plan for my_project”</p>
-</li>
-<li><p><strong>组织笔记：</strong> 在Obsidian中，您可以使用Markdown语法创建链接，例如：</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[项目目标](project-goals.md)</span><br><span class="line">[需求列表](requirements.md)</span><br><span class="line">[里程碑](milestones.md)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h2><h3 id="TDD与VSCode"><a href="#TDD与VSCode" class="headerlink" title="TDD与VSCode"></a>TDD与VSCode</h3><p>测试驱动开发（TDD）是一种确保代码质量的方法。VSCode是一个轻量级但功能强大的代码编辑器，结合Vitest，您可以实现TDD。</p>
-<p><strong>操作步骤：</strong></p>
-<ol>
-<li><strong>安装VSCode和Vitest插件(项目同时安装 vitest npm 包)：</strong></li>
-<li><strong>编写测试用例：(可以运用 GPT 辅助生成)</strong></li>
-<li><strong>运行测试：</strong></li>
-<li><strong>AI辅助生成代码：</strong> 使用AI工具（如GitHub Copilot/国内可以用 阿里家的插件）在VSCode中辅助编写代码。</li>
-</ol>
-<h2 id="构建与自动化"><a href="#构建与自动化" class="headerlink" title="构建与自动化"></a>构建与自动化</h2><h3 id="Vite与Github-Actions"><a href="#Vite与Github-Actions" class="headerlink" title="Vite与Github Actions"></a>Vite与Github Actions</h3><p>Vite是一个快速的前端构建工具，而Github Actions可以帮助您实现线上构建和部署的自动化。</p>
-<p><strong>操作步骤：</strong></p>
-<ol>
-<li><strong>配置Vite：</strong> 在<code>vite.config.ts</code>中设置项目配置。</li>
-<li><strong>创建Github Actions工作流：</strong> 在<code>.github/workflows</code>目录下创建工作流文件。 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .github/workflows/ci.yml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">CI</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line">      </span><br><span class="line"><span class="comment"># ...... 根据自己的需求</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>配置部署：</strong> 在<code>package.json</code>中添加部署脚本。 <code>&quot;scripts&quot;: &#123;   &quot;deploy&quot;: &quot;...&quot; &#125;</code></li>
-</ol>
-<h2 id="测试策略"><a href="#测试策略" class="headerlink" title="测试策略"></a>测试策略</h2><h3 id="Vitest与Cypress"><a href="#Vitest与Cypress" class="headerlink" title="Vitest与Cypress"></a>Vitest与Cypress</h3><p>结合Vitest进行单元测试，使用Cypress进行端到端测试，确保代码的稳定性和可靠性。</p>
-<p><strong>操作步骤：</strong></p>
-<ol>
-<li><strong>编写Vitest测试用例：</strong></li>
-<li><strong>编写Cypress测试：</strong></li>
-<li><strong>集成测试流程：</strong> 在Github Actions中添加测试步骤。</li>
-</ol>
-<h2 id="制品与文档管理"><a href="#制品与文档管理" class="headerlink" title="制品与文档管理"></a>制品与文档管理</h2><h3 id="npm仓库与VitePress"><a href="#npm仓库与VitePress" class="headerlink" title="npm仓库与VitePress"></a>npm仓库与VitePress</h3><p>使用npm仓库进行代码和依赖管理，VitePress和Github Wiki可以帮助您维护项目文档。</p>
-<p><strong>操作步骤：</strong></p>
-<ol>
-<li><strong>初始化npm项目：</strong> <code>npm init -y</code></li>
-<li><strong>创建VitePress文档站点：</strong> <code>npm install vitepress</code></li>
-<li><strong>配置Github Wiki：</strong> 在<code>Settings</code>中启用Wiki，并设置<code>README.md</code>作为主页。</li>
-</ol>
-<h2 id="缺陷跟踪与持续集成"><a href="#缺陷跟踪与持续集成" class="headerlink" title="缺陷跟踪与持续集成"></a>缺陷跟踪与持续集成</h2><h3 id="Github-Issues与Github-Actions"><a href="#Github-Issues与Github-Actions" class="headerlink" title="Github Issues与Github Actions"></a>Github Issues与Github Actions</h3><p>使用Github Issues进行缺陷管理，通过Github Actions实现持续集成和持续部署。</p>
-<p><strong>操作步骤：</strong></p>
-<ol>
-<li><strong>创建Issues：</strong> 在项目主页的Issues部分创建新的缺陷报告。</li>
-<li><strong>配置Github Actions：</strong> 在<code>.github/workflows</code>目录下创建CI/CD工作流。</li>
-</ol>
-<h2 id="总结与展望"><a href="#总结与展望" class="headerlink" title="总结与展望"></a>总结与展望</h2><p>本文介绍了如何通过结合Monorepo、DevOps、TDD和AIGC来构建一个高效的软件开发工作流。通过实践这些方法，您可以提高开发效率，确保代码质量，并实现快速迭代。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>鼓励您尝试这些工具和方法，以提升自己的软件开发效率。记住，技术不断进步，持续学习和适应新技术是保持竞争力的关键。</p>
-<hr>
-<p>感谢阅读，希望本文能为您的软件开发之旅提供价值。</p>
+                    <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>经过一个月的准备，我的高仿 Element-plus 组件库项目，终于初步告一段落。在接下来的日子，我将开始录制开发过程的分享视频。希望可以帮助到有需要的小伙伴。</p>
+<p>点击 <a href="https://ericwxy.github.io/eric-ui/#/">Eric-UI (ericwxy.github.io)</a>  查看组件文档</p>
+<h2 id="分享初衷"><a href="#分享初衷" class="headerlink" title="分享初衷"></a>分享初衷</h2><p>在这个信息化飞速发展的时代，前端开发已经成为软件开发中不可或缺的一部分。而组件库作为提升开发效率、保证项目质量的重要工具，一直是前端领域的热门话题。<br>随着 大模型的快速发展，普通的 CRUD 程序员被 AI 取代是肉眼可见的趋势。所以个人觉得需要更加复杂的项目经验，以及架构设计能力才能不被 AI 那么早的“抢饭碗”。</p>
+<h2 id="关于组件库"><a href="#关于组件库" class="headerlink" title="关于组件库"></a>关于组件库</h2><p>以上是组件库的文档链接，该组件库是基于 Vue3 + Typescript 封装的高仿 Element-plus 组件库。<br>其中用到了以下的技术</p>
+<ul>
+<li>monorepo 的项目管理方式 </li>
+<li>Vitest 单元测试 </li>
+<li>Vitepress 书写组件</li>
+<li>github actions 实现 自动化部署组件文档</li>
+<li>运用 大模型 辅助设计以及开发</li>
+</ul>
+<blockquote>
+<p>下面是组件库文档中的组件列表</p>
+</blockquote>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/EricWXY/PictureBed_0@master/202404171636588.png"
+                        alt="1713342685689.png"
+                 ></p>
+<h2 id="技术亮点"><a href="#技术亮点" class="headerlink" title="技术亮点"></a>技术亮点</h2><p>从组件的列表可以看出，这次选择复刻的 Element 组件是很有代表性的。</p>
+<ul>
+<li>通过 Loading 、Message、MessageBox、Notification 组件可以很好的诠释指令式调用组件的封装方式，我们也知道在日常的业务开发当中我们封装的 Vue 组件大部分都是申明式调用的。</li>
+<li>Loading 组件提供 service 和 directive(vue 指令) 两种调用方式，可以进一步了解 vue 指令的封装方法。</li>
+<li>在 上面的 Loading、Message 等一些列反馈组件中 运用 自定义 hooks（组合式API） 的方式封装了对 z-index 的 计算，以及 Message 、 Notification 组件的弹出位置计算。</li>
+<li>通过 对 popper.js 的封装 实现了 Tooltip 、Dropdown 、PopConfirm 这一类组件的功能。</li>
+<li>在 Dropdown/DropdownItem 以及 Select/Option 、ButtonGroup/Button 、Form/FormItem 这类父子组件嵌套使用的场景，运用 依赖注入的方式来共享上下文信息。</li>
+<li>使用 async-validator 来封装表单的校验功能。</li>
+</ul>
+<p>除了以上列到的这些还有很多有意思的点，在后面的视频里我都会详细分享的。</p>
+<p>这么样是不是干货满满，希望可以帮助到需要提上 vue 水平的小伙伴，我们共同进步。</p>
 
                 </div>
 
@@ -278,19 +258,19 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/monorepo/">monorepo</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/vue3/">vue3</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/DevOps/">DevOps</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/typescript/">typescript</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/TDD/">TDD</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/">组件库</a>
                                     </li>
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AIGC/">AIGC</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/element-plus/">element-plus</a>
                                     </li>
                                 
                             </ul>
@@ -341,31 +321,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/04/17/2024-04-17-01/"
-                                   title="从零手搓一个 Element Plus"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">从零手搓一个 Element Plus</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/03/07/2024-03-07-01/"
-                                   title="提升工作效率：结合PARA资料管理和GTD的实用工作流程"
+                                   href="/2024/03/07/2024-03-07-02/"
+                                   title="构建高效的软件开发工作流：Monorepo、DevOps、TDD、AIGC的指北"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">提升工作效率：结合PARA资料管理和GTD的实用工作流程</span>
+                                        <span class="post-nav-title-item text-ellipsis">构建高效的软件开发工作流：Monorepo、DevOps、TDD、AIGC的指北</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
